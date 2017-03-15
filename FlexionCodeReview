@@ -1,1 +1,58 @@
-Test Code for FLEXION - VALUE FORWARD
+/*
+ * 
+ */
+package flexioncodereview;
+import java.util.Scanner;
+/**
+ *
+ * @Robert Renaud
+ * Renaud R&D
+ */
+public class FlexionCodeReview {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+int length1; int length2; int length3;
+Scanner reader = new Scanner(System.in);  // Reading from System.in
+System.out.println("Enter First Length of Triangle: ");
+length1 = reader.nextInt(); // Scans the next token of the input as an int.
+/*Scanner reader = new Scanner(System.in);  // Reading from System.in*/
+System.out.println("Enter Second Length of Triangle: ");
+length2 = reader.nextInt(); // Scans the next token of the input as an int.
+/*Scanner reader = new Scanner(System.in);  // Reading from System.in*/
+System.out.println("Enter Third Length of Triangle: ");
+length3 = reader.nextInt(); // Scans the next token of the input as an int.
+String triangleType = checkLengths(length1, length2, length3);
+
+    System.out.println(triangleType);
+    }
+/*Example scenarios:
+    Side 1|Side 2|Side 3|Response
+     1.5  |  1.5 |  1.5 | equilateral
+      3   |   4  |   4  | isosceles
+     4.4  |  7.3 |  9.1 | scalene
+      4   |   6  |  11  | not a triangle
+*/
+    private static String checkLengths(int length1, int length2, int length3) {
+        if(length1 >= length2+length3 || length2 >= length1+length3 || length3 >= length1+length2){
+            return "Not a triangle";
+        }
+        if (length1 == length2 && length2 == length3){
+            return "Equilateral";
+        }
+        if (length1 == length2 || length1 == length3 || length2 == length3){
+            return "Isosceles";
+        }
+        if((length1 > length2 && length2 > length3)||(length2 > length3 && length3 > length1)||(length3 > length2 && length2 > length1)){
+            return "Scalene";
+        }
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools 
+   
+    }
+    
+}
